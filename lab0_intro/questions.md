@@ -49,7 +49,10 @@ It displays a calendar of the current month.
     >   answer
 
 11.  How many users exist in *Guitaca*?
-    >   answer
+    >    3
+vafus    :0           2015-02-02 08:59 (:0)
+vafus    pts/1        2015-02-02 08:59 (:0)
+vision   pts/2        2015-02-02 11:04 (host95-197.uniandes.edu.co)
 
 12. What command will produce a table of Users and Shells sorted by shell (tip: using ``cut`` and ``sort``)
     >   answer
@@ -58,7 +61,7 @@ It displays a calendar of the current month.
     >   answer
 
 14.  What is the name of the linux distribution running on *Guitaca*?
-    >   answer
+    >  
 
 15. Create a script for finding duplicate images based on their content (tip: hash or checksum)
     You may look in the internet for ideas, but please indicate the source of any code you use
