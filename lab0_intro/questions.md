@@ -1,13 +1,20 @@
 # Warmup Questions
 
 1.  What is the clone url of this repository?
-    >   answer
+    >   https://github.com/pflorezh/lab_vision
 
 2.  What is the output of the ``cal`` command?
 
-        multi
-        line
-        answer
+ubuntu-gnome@ubuntu-gnome:~$ cal
+  
+   February 2015      
+Su Mo Tu We Th Fr Sa  
+ 1  2  3  4  5  6  7  
+ 8  9 10 11 12 13 14  
+15 16 17 18 19 20 21  
+22 23 24 25 26 27 28  
+
+It displays a calendar of the current month.
 
 # Homework Questions
 
