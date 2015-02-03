@@ -19,16 +19,20 @@ It displays a calendar of the current month.
 # Homework Questions
 
 1.  What is the ``grep``command?
-    >   answer
+    >   It's a command used to search for a word or a string of characters in a file(s).
 
 2.  What is a *makefile*?
-    >   answer
+    >   It's a text file containing the rules that the *make* program uses to compile/manage programs.
 
 3.  What is *git*?
-    >   answer
+    >   It's a system that allows for many software developers to work simultaneously on a project. It focuses on the speed and data integrity of the project.
 
 4.  What does the ``-prune`` option of ``find`` do? Give an example
-    >   answer
+    >   It excludes directories from the search done with the 'find' command.
+
+Ex: find . -name temp -prune
+
+This command prints a list of files and directories with the name temp, but -prune won't allow the find command to access the directories listed with the temp name in order to find more tmp named files inside of them.
 
 5.  Where is the file ``xxxxxx``
     >   answer
@@ -50,6 +54,7 @@ It displays a calendar of the current month.
 
 11.  How many users exist in *Guitaca*?
     >    3
+
 vafus    :0           2015-02-02 08:59 (:0)
 vafus    pts/1        2015-02-02 08:59 (:0)
 vision   pts/2        2015-02-02 11:04 (host95-197.uniandes.edu.co)
