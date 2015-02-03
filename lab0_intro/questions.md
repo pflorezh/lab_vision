@@ -29,9 +29,7 @@ It displays a calendar of the current month.
 
 4.  What does the ``-prune`` option of ``find`` do? Give an example
     >   It excludes directories from the search done with the 'find' command.
-
 Ex: find . -name temp -prune
-
 This command prints a list of files and directories with the name temp, but -prune won't allow the find command to access the directories listed with the temp name in order to find more tmp named files inside of them.
 
 5.  Where is the file ``xxxxxx``
@@ -54,7 +52,6 @@ This command prints a list of files and directories with the name temp, but -pru
 
 11.  How many users exist in *Guitaca*?
     >    3
-
 vafus    :0           2015-02-02 08:59 (:0)
 vafus    pts/1        2015-02-02 08:59 (:0)
 vision   pts/2        2015-02-02 11:04 (host95-197.uniandes.edu.co)
