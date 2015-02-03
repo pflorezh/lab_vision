@@ -59,7 +59,7 @@ This command prints a list of files and directories with the name temp, but -pru
     >  Taken from http://www.tomshardware.com/forum/236826-50-linux-shell-script-find-duplicate-images
 
 16. What is the meaning of ``#! /bin/bash`` at the start of scripts?
-    >  
+    >  It identifies the program that must be used to run the script.
 
 17. How many unique images are in the ``sipi_images`` folder?
     >   215
