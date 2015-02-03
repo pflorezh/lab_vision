@@ -1,18 +1,9 @@
 # Warmup Questions
 
 1.  What is the clone url of this repository?
-    >   https://github.com/pflorezh/lab_vision
+    >   https://github.com/pflorezh/lab_vision.git
 
 2.  What is the output of the ``cal`` command?
-
-ubuntu-gnome@ubuntu-gnome:~$ cal
-  
-   February 2015      
-Su Mo Tu We Th Fr Sa  
- 1  2  3  4  5  6  7  
- 8  9 10 11 12 13 14  
-15 16 17 18 19 20 21  
-22 23 24 25 26 27 28  
 
 It displays a calendar of the current month.
 
@@ -36,10 +27,10 @@ This command prints a list of files and directories with the name temp, but -pru
     >   An XXXXXX file is a partial download file or temporary file. These are normally found on a folder named temp in the main directory.
 
 6.  How many files with ``gnu`` in its name are in ``/usr/src``
-    >   The files can be found using the command:  find directories -name pattern, where directories is /usr/src and pattern is gnu. The number of files can be counted adding the wc command at the end.
+    >   The files can be found using the command:  find directories -name pattern, where directories is /usr/src and pattern is gnu. The number of files can be counted adding the wc command at the end (656).
 
 7.  How many files contain ``gpl`` inside in ``/usr/src``
-    >   The files can be found using the command: grep -l name directory, where name is "gpl" and directory is /usr/src. THis search produces a list of names of the files containing gpl, and the elements cn be counted by adding the wc command at the end.
+    >   The files can be found using the command: grep -l name directory, where name is "gpl" and directory is /usr/src. This search produces a list of names of the files containing gpl, and the elements can be counted by adding the wc command at the end (51).
 
 8.  What does the ``cut`` command do?
     >   It exctracts a section from a file. The section to be removed can be determined by different classifications such as bytes, charaters and fields.
@@ -51,16 +42,16 @@ This command prints a list of files and directories with the name temp, but -pru
     >   It compares and finds differences between two aforementioned files.
 
 11.  How many users exist in *Guitaca*?
-    >   Online users can be obtained using the command: who. All users can be listed by displaying the contents of the cat/etc/passwd directory.
+    >   Online users can be obtained using the command: who. All users can be listed by displaying the contents of the cat/etc/passwd directory and counting them with the wc command (48).
 
 12. What command will produce a table of Users and Shells sorted by shell (tip: using ``cut`` and ``sort``)
-    >   answer
+    >   cat/etc/passwd | cut -d: -f1,7 | sort -k2
 
 13. What command will produce the number of users with shell ``/sbin/nologin`` (tip: using ``grep`` and ``wc``)
-    >   answer
+    >   cat/etc/passwd | cut -d: -f7 | grep ``/sbin/nologin``| wc -l
 
 14.  What is the name of the linux distribution running on *Guitaca*?
-    >  
+    >  3.17.8-200.fc20.x86_64
 
 15. Create a script for finding duplicate images based on their content (tip: hash or checksum)
     You may look in the internet for ideas, but please indicate the source of any code you use
