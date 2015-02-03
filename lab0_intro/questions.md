@@ -33,28 +33,25 @@ Ex: find . -name temp -prune
 This command prints a list of files and directories with the name temp, but -prune won't allow the find command to access the directories listed with the temp name in order to find more tmp named files inside of them.
 
 5.  Where is the file ``xxxxxx``
-    >   answer
+    >   An XXXXXX file is a partial download file or temporary file. These are normally found on a folder named temp in the main directory.
 
-6.  How many files with ``gnu`` in its name are in ``dir``
-    >   answer
+6.  How many files with ``gnu`` in its name are in ``/usr/src``
+    >   The files can be found using the command:  find directories -name pattern, where directories is /usr/src and pattern is gnu. The number of files can be counted adding the wc command at the end.
 
-7.  How many files contain ``gpl`` inside in ``dir``
-    >   answer
+7.  How many files contain ``gpl`` inside in ``/usr/src``
+    >   The files can be found using the command: grep -l name directory, where name is "gpl" and directory is /usr/src. THis search produces a list of names of the files containing gpl, and the elements cn be counted by adding the wc command at the end.
 
 8.  What does the ``cut`` command do?
-    >   answer
+    >   It exctracts a section from a file. The section to be removed can be determined by different classifications such as bytes, charaters and fields.
 
 9.  What does the ``wget`` command do?
-    >   answer
+    >   It allows the download of a file from the Web. (Protocols supported: HTTP, HTTPS, FTP).
 
 10.  What does the ``diff`` command do?
-    >   answer
+    >   It compares and finds differences between two aforementioned files.
 
 11.  How many users exist in *Guitaca*?
-    >    3
-vafus    :0           2015-02-02 08:59 (:0)
-vafus    pts/1        2015-02-02 08:59 (:0)
-vision   pts/2        2015-02-02 11:04 (host95-197.uniandes.edu.co)
+    >   Online users can be obtained using the command: who. All users can be listed by displaying the contents of the cat/etc/passwd directory.
 
 12. What command will produce a table of Users and Shells sorted by shell (tip: using ``cut`` and ``sort``)
     >   answer
