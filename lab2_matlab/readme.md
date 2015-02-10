@@ -116,6 +116,8 @@ A=imread(img);
 imwrite(A,[name,'.jpg']);
 end
 
+B=dir('*.tiff');
+
 ## Matlab and the shell
 
 ### Shell from Matlab
