@@ -109,7 +109,7 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 2.  Write one of the images from before as png and as jpg
 3.  Write a matlab function that takes the path of an image and converts it to jpg
 
-    > function image2jpg( img )
+function image2jpg( img )
 %Function that converts a file path to .jpg
 A=imread(img);
 [pathstr, name, ext] = fileparts(img);
