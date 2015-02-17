@@ -159,7 +159,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > Answer
+    > The images remain noisy after the change in the extension
 
 ### Median filter
 
@@ -173,7 +173,7 @@ These filters can be applied to a an image in order to remove noise.
 3.  Try different sizes for the filters
 4.  Which filter works best for salt & pepper noise?
 
-    > Answer
+    > The median filter is more effective than the mean filter for salt and pepper noise
 
 For more on noise removal read http://www.mathworks.com/help/images/noise-removal.html
 
@@ -186,7 +186,7 @@ which can be otained from [fspecial](http://www.mathworks.com/help/images/ref/fs
 2.  Try different sizes for the filters
 3.  What differences do you notice?
 
-    > Answer
+    > The size of the filter directly correlates with the distortion created from the original image. Gaussian filters preserve the structure of elements better than average filters.
 
 ### Sharpen
 
@@ -194,11 +194,11 @@ The [imsharpen](http://www.mathworks.com/help/images/ref/imsharpen.html) functio
 
 1.  Sharp the ``5.1.12`` image. What do you notice?
 
-    > Answer
+    > The edges look generally thinner, as if the deffinition of the image had improved.
 
 2.  Sharp a blurred image. What do you notice?
 
-    > Answer
+    > It appears to turn into an un-blurred version of itself. 
 
 ### Edge detection
 
@@ -268,11 +268,11 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
 3.  At what level does the people in the picture dissappear?
 
-    >   Answer
+    >   On the third level you can hardly see the general figures of the people in the picture anymore.
     
 4.  At what level does the numbers in the clock disappear?
 
-    >   Answer
+    >   The last level in which it's possible to read the numbers on the clock is the first one, on the second one they're no longer identifiable.
 
 ## Template Matching
 
