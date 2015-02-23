@@ -160,6 +160,8 @@ If the command or script doesn't end in ``exit`` the matlab shell will stay open
     -   Or both
 2.  Save this script in the matlab lab folder of your git repository
 
+  > Saved as AllTiff2Jpg.m
+  
 ## Filters
 
 ### Adding noise
@@ -171,7 +173,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > Nothing visible, just the image with the added noise of each type.
+    > Nothing too visible, just the added noise seems less than before changing the format.
 
 ### Median filter
 
@@ -185,7 +187,7 @@ These filters can be applied to a an image in order to remove noise.
 3.  Try different sizes for the filters
 4.  Which filter works best for salt & pepper noise?
 
-    > Answer
+    > With the median filter we obtain images that still mantain their edges, so this filter might be better to preserve the image and get rid of the salt and pepper noise.
 
 For more on noise removal read http://www.mathworks.com/help/images/noise-removal.html
 
@@ -198,7 +200,7 @@ which can be otained from [fspecial](http://www.mathworks.com/help/images/ref/fs
 2.  Try different sizes for the filters
 3.  What differences do you notice?
 
-    > Answer
+    > The edges of the blurred image are less and less noticeable as the filter grows in size, the filter gets more destructive of the details when it's bigger.
 
 ### Sharpen
 
@@ -206,11 +208,11 @@ The [imsharpen](http://www.mathworks.com/help/images/ref/imsharpen.html) functio
 
 1.  Sharp the ``5.1.12`` image. What do you notice?
 
-    > Answer
+    > The edges seem to be more noticeable. The difference between features is clearer.
 
 2.  Sharp a blurred image. What do you notice?
 
-    > Answer
+    > Some of the effects of the blurring seem to disappear, however, the result isn't quite like the original image.
 
 ### Edge detection
 
@@ -267,8 +269,77 @@ color spaces.
     ```
 5.  Transform the image to the following color spaces and repeat the exercise
     -   ycbcr
+
+    > img=imread('4.2.03.tiff');
+    
+    > ycbcr=rgb2ycbcr(img);
+    
+    > y=ycbcr(:,:,1);
+
+    > cb=ycbcr(:,:,2);
+    
+    > cr=ycbcr(:,:,3);
+    
+    > figure(1)
+    
+    > subplot(2,2,1), subimage(ycbcr);
+    
+    > subplot(2,2,2), subimage(y);
+    
+    > subplot(2,2,3), subimage(cb);
+    
+    > subplot(2,2,4), subimage(cr);
+    
+    > print('-dpng','ycbcr_mosaic.png');
+    
     -   lab
+    
+    > img=imread('4.2.03.tiff');
+    
+    > lab=rgb2lab(img);
+    
+    > l=lab(:,:,1);
+
+    > a=lab(:,:,2);
+    
+    > b=lab(:,:,3);
+    
+    > figure(1)
+    
+    > subplot(2,2,1), subimage(lab);
+    
+    > subplot(2,2,2), subimage(l);
+    
+    > subplot(2,2,3), subimage(a);
+    
+    > subplot(2,2,4), subimage(b);
+    
+    > print('-dpng','lab_mosaic.png');
+    
     -   hsv (use [rgb2hsv](http://www.mathworks.com/help/matlab/ref/rgb2hsv.html))
+
+    > img=imread('4.2.03.tiff');
+    
+    > hsv=rgb2hsv(img);
+    
+    > h=lab(:,:,1);
+
+    > s=lab(:,:,2);
+    
+    > v=lab(:,:,3);
+    
+    > figure(1)
+    
+    > subplot(2,2,1), subimage(hsv);
+    
+    > subplot(2,2,2), subimage(h);
+    
+    > subplot(2,2,3), subimage(s);
+    
+    > subplot(2,2,4), subimage(v);
+    
+    > print('-dpng','hsv_mosaic.png');
+
 
 6.  Save all the mosaics in your github repository
 
@@ -278,6 +349,31 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 
 1.  Read the manual page
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
+
+    > img=imread('5.1.12.tiff');
+    
+    > img01=impyramid(img, 'reduce');
+    
+    > img02=impyramid(img01, 'reduce');
+    
+    > img03=impyramid(img02, 'reduce');
+    
+    > img04=impyramid(img03, 'reduce');
+    
+    > figure(1)
+    
+    > subplot(3,2,1), subimage(img);
+    
+    > subplot(3,2,2), subimage(img01);
+    
+    > subplot(3,2,3), subimage(img02);
+    
+    > subplot(3,2,4), subimage(img03);
+    
+    > subplot(3,2,5), subimage(img04);
+    
+    > print('-dpng','pyr.png');
+
 3.  At what level does the people in the picture dissappear?
 
     >   On the third level it's not possible to see the people in the picure anymore because of the blur.
@@ -324,13 +420,13 @@ The [norm2corrx](http://www.mathworks.com/help/images/ref/normxcorr2.htm) can be
     ```
 6.  Explain what the above code does
 
-    > Answer
+    > Using 'train' as a template, the code searches for a match of said template in the image. The result is a correlation map where the highest intensity corresponds to the places more similar to the train template.
     
 7.  Now lets find the train in the next frame, read image ``motion05.512.tiff``.
 8.  Apply the procedure written above to it (use the train template from the past frame)
 9.  What are the limitations of this method?
 
-    > Answer
+    > Even slight changes in luminosity, angle, saturation of the template or image can create a correlation when there's none or totally miss the correct place of the image to find, given that the comparison is not flexible.
 
 See [here](http://www.mathworks.com/help/images/examples/registering-an-image-using-normalized-cross-correlation.html)
 another example.
