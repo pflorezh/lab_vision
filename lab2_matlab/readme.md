@@ -322,11 +322,11 @@ color spaces.
     
     > hsv=rgb2hsv(img);
     
-    > h=lab(:,:,1);
+    > h=hsv(:,:,1);
 
-    > s=lab(:,:,2);
+    > s=hsv(:,:,2);
     
-    > v=lab(:,:,3);
+    > v=hsv(:,:,3);
     
     > figure(1)
     
