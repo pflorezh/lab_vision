@@ -118,12 +118,17 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 2.  Write one of the images from before as png and as jpg (Done with '4.2.03.tiff')
 3.  Write a matlab function that takes the path of an image and converts it to jpg
 
-    >   The function is called img2jpg.m and it's located on the folder with the resulting images. The content id:
-    function img2jpg( image )
-        i=imread(image);
-        [path,name,ext] = fileparts(image);
-        imwrite(i,[name,'.jpg']);
-    end
+    >   The function is called img2jpg.m and it's located on the folder with the resulting images. The content is:
+    
+    > function img2jpg( image )
+        
+    > i=imread(image);
+    
+    > [path,name,ext] = fileparts(image);
+    
+    > imwrite(i,[name,'.jpg']);
+    
+    > end
     
 ## Matlab and the shell
 
@@ -166,7 +171,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > Answer
+    > Nothing visible, just the image with the added noise of each type.
 
 ### Median filter
 
@@ -275,11 +280,11 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
 3.  At what level does the people in the picture dissappear?
 
-    >   Answer
+    >   On the third level it's not possible to see the people in the picure anymore because of the blur.
     
 4.  At what level does the numbers in the clock disappear?
 
-    >   Answer
+    >   On the second level the numbers are not possible to be differentiated anymore.
 
 ## Template Matching
 
