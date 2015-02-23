@@ -72,14 +72,6 @@ Note the current directory is also shown at the top of the graphical interface
 1.  Change to the *misc* directory, which contains the uncompressed sipi_images
 2.  List the contents of the directory
 
-    >   
-4.1.01.tiff  4.1.06.tiff  4.2.03.tiff  5.1.09.tiff  5.1.14.tiff  5.3.02.tiff  7.1.05.tiff  7.1.10.tiff    
-house.tiff   4.1.02.tiff  4.1.07.tiff  4.2.04.tiff  5.1.10.tiff  5.2.08.tiff  7.1.01.tiff  7.1.06.tiff  
-7.2.01.tiff  numbers.512.tiff          4.1.03.tiff  4.1.08.tiff  4.2.05.tiff  5.1.11.tiff  5.2.09.tiff  
-7.1.02.tiff  7.1.07.tiff  boat.512.tiff    ruler.512.tiff         testpat.1k.tiff
-4.1.04.tiff  4.2.01.tiff  4.2.06.tiff  5.1.12.tiff  5.2.10.tiff  7.1.03.tiff  7.1.08.tiff  elaine.512.tiff  
-4.1.05.tiff  4.2.02.tiff  4.2.07.tiff  5.1.13.tiff  5.3.01.tiff  7.1.04.tiff  7.1.09.tiff  gray21.512.tiff
-
 ## Reading Images
 
 The [imread](http://www.mathworks.com/help/matlab/ref/imread.html) command is used in matlab to read images. 
@@ -89,12 +81,12 @@ The [imread](http://www.mathworks.com/help/matlab/ref/imread.html) command is us
     
     What is the dimension of the output?
 
-    >   256 x 256
+    >   Answer
 
 3.  Read the ``4.2.03`` image
     What is the dimension of the output?
 
-    >   512 x 512 x 3
+    >   Answer
 
 ## Displaying Images
 
@@ -107,7 +99,7 @@ The following commands can be used for displaying images
 2.  Try displaying the images read in the previous point using both commands
 3.  What are the differences?
 
-    >   Imshow muestra las imagenes conservando su escala y propiedades, mientras Image permite modificarlas y muestra a color la imagen que originalmente estaba en blanco y negro.
+    >   Answer
 
 ## Writing Images
 
@@ -116,15 +108,6 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 1.  Look at the manual page
 2.  Write one of the images from before as png and as jpg
 3.  Write a matlab function that takes the path of an image and converts it to jpg
-
-function image2jpg( img )
-%Function that converts a file path to .jpg
-A=imread(img);
-[pathstr, name, ext] = fileparts(img);
-imwrite(A,[name,'.jpg']);
-end
-
-B=dir('*.tiff');
 
 ## Matlab and the shell
 
@@ -167,7 +150,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > The images remain noisy after the change in the extension
+    > Answer
 
 ### Median filter
 
@@ -181,7 +164,7 @@ These filters can be applied to a an image in order to remove noise.
 3.  Try different sizes for the filters
 4.  Which filter works best for salt & pepper noise?
 
-    > The median filter is more effective than the mean filter for salt and pepper noise
+    > Answer
 
 For more on noise removal read http://www.mathworks.com/help/images/noise-removal.html
 
@@ -194,7 +177,7 @@ which can be otained from [fspecial](http://www.mathworks.com/help/images/ref/fs
 2.  Try different sizes for the filters
 3.  What differences do you notice?
 
-    > The size of the filter directly correlates with the distortion created from the original image. Gaussian filters preserve the structure of elements better than average filters.
+    > Answer
 
 ### Sharpen
 
@@ -202,11 +185,11 @@ The [imsharpen](http://www.mathworks.com/help/images/ref/imsharpen.html) functio
 
 1.  Sharp the ``5.1.12`` image. What do you notice?
 
-    > The edges look generally thinner, as if the deffinition of the image had improved.
+    > Answer
 
 2.  Sharp a blurred image. What do you notice?
 
-    > It appears to turn into an un-blurred version of itself. 
+    > Answer
 
 ### Edge detection
 
@@ -276,11 +259,11 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
 3.  At what level does the people in the picture dissappear?
 
-    >   On the third level you can hardly see the general figures of the people in the picture anymore.
+    >   Answer
     
 4.  At what level does the numbers in the clock disappear?
 
-    >   The last level in which it's possible to read the numbers on the clock is the first one, on the second one they're no longer identifiable.
+    >   Answer
 
 ## Template Matching
 
@@ -320,13 +303,13 @@ The [norm2corrx](http://www.mathworks.com/help/images/ref/normxcorr2.htm) can be
     ```
 6.  Explain what the above code does
 
-    > It uses the image named 'train' to correlate it to the image 'image' and find the most likely position of a similar figure in the space of 'image'.
+    > Answer
     
 7.  Now lets find the train in the next frame, read image ``motion05.512.tiff``.
 8.  Apply the procedure written above to it (use the train template from the past frame)
 9.  What are the limitations of this method?
 
-    > The image taken as a template will not be perfect, so there could be many undesired spots in which the correlation of both image and template are equal to the places in 'image' that are being searched.
+    > Answer
 
 See [here](http://www.mathworks.com/help/images/examples/registering-an-image-using-normalized-cross-correlation.html)
 another example.
@@ -334,3 +317,5 @@ another example.
 ## End
 
 Don't forget to commit and push your answers and images to github
+
+**DUE**: 24/02/2015 ; 8:00 a.m.
