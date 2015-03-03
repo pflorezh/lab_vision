@@ -1,5 +1,5 @@
 function my_segmentation = segment_by_clustering( rgb_image, feature_space, clustering_method, number_of_clusters)
-work_image=null;
+work_image=[];
 if strcmp(feature_space,'rgb')
     work_image=rgb_image;
 else
@@ -24,7 +24,7 @@ else
     end
 end
 
-if strcmp(clustering_method,'k-means')
+if strcmp(clustering_method,'kmeans')
     segm=kmeans(work_image,number_of_clusters);
 else
     if strcmp(clustering_method,'gmm')
@@ -39,5 +39,5 @@ else
         end
     end
 end
-
+my_segmentation=segm;
 end
