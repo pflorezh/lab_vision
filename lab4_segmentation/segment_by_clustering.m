@@ -25,7 +25,7 @@ else
 end
 
 if strcmp(clustering_method,'k-means')
-    %cod
+    segm=kmeans(work_image,number_of_clusters);
 else
     if strcmp(clustering_method,'gmm')
         %cod
