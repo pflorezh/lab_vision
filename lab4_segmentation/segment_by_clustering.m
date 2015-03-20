@@ -1,22 +1,62 @@
 function my_segmentation = segment_by_clustering( rgb_image, feature_space, clustering_method, number_of_clusters)
-work_image=[];
+image=imread(rgb_image);
+[A,B,~]=size(image);
+if strcmp(clustering_method,'hierarchical')
+    image=imresize(image,0.5);
+end
 if strcmp(feature_space,'rgb')
-    work_image=rgb_image;
+    im=double(reshape(image(:),[],3));
+    work_image=im;
 else
     if strcmp(feature_space,'lab')
-        work_image=rgb2lab(rgb_image);
+        im=double(reshape(image(:),[],3));
+        [L, a, b]=RGB2Lab(im(:,1),im(:,2),im(:,3));
+        work_image=255.*[L a b];
     else
         if strcmp(feature_space,'hsv')
-            work_image=rgb2hsv(rgb_image);
+            im=rgb2hsv(image);
+            work_image=255.*double(reshape(im(:),[],3));
         else
             if strcmp(feature_space,'rgb+xy')
-                work_image=rgb2xyz(rgb_image);
+                im=double(reshape(image(:),[],3));
+                con=0;
+                for i=1:B
+                    for j=1:A
+                        con=con+1;
+                        im(con,4)=i;
+                        im(con,5)=j;
+                    end
+                end
+                work_image=im;
             else
                 if strcmp(feature_space,'lab+xy')
-                    work_image=rgb2lab(rgb_image);
+                    im=double(reshape(image(:),[],3));
+                    [L, a, b]=RGB2Lab(im(:,1),im(:,2),im(:,3));
+                    im=255.*[L a b];
+                    con=0;
+                    for i=1:B
+                        for j=1:A
+                            con=con+1;
+                            im(con,4)=i;
+                            im(con,5)=j;
+                        end
+                    end
+                    work_image=im;
                 else
                     if strcmp(feature_space,'hsv+xy')
-                        work_image=rgb2hsv(rgb_image);
+                        im=rgb2hsv(image);
+                        im=255.*double(reshape(im(:),[],3));
+                        con=0;
+                        for i=1:B
+                            for j=1:A
+                                con=con+1;
+                                im(con,4)=i;
+                                im(con,5)=j;
+                            end
+                        end
+                        work_image=im;
+                    else 
+                        disp('Error en feature_space');
                     end
                 end
             end
@@ -25,16 +65,45 @@ else
 end
 
 if strcmp(clustering_method,'kmeans')
-    segm=kmeans(work_image,number_of_clusters);
+    clust=kmeans(work_image,number_of_clusters);
+    clust=reshape(clust, A, B);
+    figure;
+    imshow(clust,[]);
+    colormap colorcube;
+    segm=clust;
 else
     if strcmp(clustering_method,'gmm')
-        %cod
+        clust=cluster(gmdistribution.fit(work_image, number_of_clusters), work_image);
+        clust=reshape(clust, A, B);
+        figure
+        imshow(clust,[])
+        colormap colorcube
+        segm=clust;
     else
         if strcmp(clustering_method,'hierarchical')
-            %cod
+            clust=linkage(work_image,'ward','euclidean');
+            clust=cluster(clust,'maxclust',number_of_clusters);
+            clust=reshape(clust(:), A, B);
+            figure
+            imshow(clust,[])
+            colormap colorcube
+            segm=clust;
         else
             if strcmp(clustering_method,'watershed')
-                %cod
+                im=rgb2gray(image);
+                Hy= fspecial('sobel');
+                Hx= Hy';
+                Iy= imfilter(double(im), Hy, 'replicate');
+                Ix = imfilter(double(im), Hx, 'replicate');
+                grad = sqrt(Ix.^2+Iy.^2);
+                marker = imextendedmin(grad, number_of_clusters);
+                new_grad= imimposemin(grad, marker);
+                ws= watershed(new_grad);
+                figure
+                imshow(ws==0)
+                segm=new_grad;
+            else
+                disp('Error en clustering_method');
             end
         end
     end
